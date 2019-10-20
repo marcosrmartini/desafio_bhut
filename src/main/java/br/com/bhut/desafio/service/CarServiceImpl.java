@@ -11,6 +11,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;
@@ -34,13 +35,10 @@ public class CarServiceImpl implements CarService {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
-		List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();        
-		MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
+		interceptors.add(new HeaderRequestInterceptor("Accept", MediaType.APPLICATION_JSON_VALUE));
 
-		converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));        
-		messageConverters.add(converter);
-		
-		restTemplate.setMessageConverters(messageConverters); 
+		restTemplate.setInterceptors(interceptors);
 		
 		ResponseEntity<List<CarPayload>> response = restTemplate.exchange(ENDPOINT,
 				HttpMethod.GET, null, new ParameterizedTypeReference<List<CarPayload>>() {
