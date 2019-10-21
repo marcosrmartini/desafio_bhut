@@ -21,7 +21,7 @@
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<!-- Organization and project keys are displayed in the right sidebar of the project homepage -->
 		<sonar.organization>marcosrmartini-github</sonar.organization>
-		<sonar.projectKey>marcosrmartini_bhut</sonar.projectKey>
+		<sonar.projectKey>desafio_bhut</sonar.projectKey>
 
 	</properties>
 
