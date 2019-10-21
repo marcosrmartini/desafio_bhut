@@ -1,4 +1,4 @@
-package br.com.bhut.desafio.service;
+package br.com.bhut.desafio.service.utils;
 
 import java.io.IOException;
 

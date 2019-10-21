@@ -21,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 import br.com.bhut.desafio.model.Log;
 import br.com.bhut.desafio.payload.CarPayload;
 import br.com.bhut.desafio.repository.LogRepository;
+import br.com.bhut.desafio.service.utils.HeaderRequestInterceptor;
 
 @Service
 public class CarServiceImpl implements CarService {

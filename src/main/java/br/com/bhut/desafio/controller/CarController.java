@@ -32,7 +32,7 @@ public class CarController {
 		try {
 			response = service.listagem();
 			if (response.isEmpty()) {
-				return ResponseEntity.notFound().build();
+				return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 			} else {
 				return ResponseEntity.ok().body(response);
 			}
@@ -49,7 +49,7 @@ public class CarController {
 		try {
 			response = service.salvar(car);
 			if (response.get_id().isEmpty()) {
-				return ResponseEntity.notFound().build();
+				return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 			} else {
 				return ResponseEntity.ok().body(response);
 			}
@@ -67,7 +67,7 @@ public class CarController {
 		try {
 			response = service.log();
 			if (response.isEmpty()) {
-				return ResponseEntity.notFound().build();
+				return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 			} else {
 				return ResponseEntity.ok().body(response);
 			}
